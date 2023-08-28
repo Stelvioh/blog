@@ -5,6 +5,7 @@ class Config:
     TESTING = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///production.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'default-secret-key')  # Adicionado
 
 class DevelopmentConfig(Config):
     DEBUG = True
