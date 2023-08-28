@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request, jsonify
-from flask_jwt_extended import get_jwt_identity, get_jwt_claims, jwt_required
+from flask_jwt_extended import get_jwt, jwt_required
 
 def token_required(f):
     @jwt_required()
@@ -16,7 +16,7 @@ def roles_required(*required_roles):
         @jwt_required()
         @wraps(f)
         def decorated_function(*args, **kwargs):
-            claims = get_jwt_claims()
+            claims = get_jwt()
             user_roles = claims.get("roles", [])
 
             for required_role in required_roles:

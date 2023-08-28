@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from domain.user import db
+from domain.post import Post
 from controller.user_controller import user_bp
 from controller.post_controller import post_bp
 from controller.auth_controller import auth_bp
